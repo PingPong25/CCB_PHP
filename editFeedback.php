@@ -133,7 +133,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <td><?php echo isset($feedback_id) ? $feedback_id : ""; ?><input type = "hidden" name = "feedbackId" value = "<?php echo $feedback_id; ?>"/></td>
                 </tr>
                 <tr>
-                    <td>Event ID:</td>
+                    <td>Product ID:</td>
                     <td><?php echo isset($event_id) ? $event_id : ""; ?><input type = "hidden" name = "event_id" value = "<?php echo $event_id; ?>"/></td>
                 </tr>
                 <tr>

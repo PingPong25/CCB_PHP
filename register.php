@@ -48,7 +48,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         
         <main class="form-signin w-100 m-auto" style="background-color: #B1D6FA; border-radius: 30px">
             <div style="text-align: center;">
-                <a href="home.php"><img class = "logo" src="img/logo.jpg" alt="logo" /></a>
+                <a href="home.php"><img class = "logo" src="img/logo.png" alt="logo" /></a>
                 <h1>Register</h1>
             </div>
         

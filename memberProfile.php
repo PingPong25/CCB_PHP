@@ -58,15 +58,15 @@ if (isset($_COOKIE["login-user"])) {
     <body>
         <main class="main">
             <div class="topbar mb-3">
-                <a href="#" name="logout">Logout</a>
+                <a href="home.php" name="logout">Logout</a>
             </div>
             <?php include_once "./secret/helperMember.php"?>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <button class="nav-link mb-3" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"><a href="memberEvent.php">Home</a></button>
-                            <button class="nav-link active mb-3" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Member Profile</button>
+                            <button class="nav-link active mb-3" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"><a href="memberEvent.php" style="color: white; text-decoration: none;">Home</a></button>
+                            <button class="nav-link active mb-3" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Member Profile</button>   
                         </div>
                     </div>
                     <div class="col-md-9">

@@ -13,6 +13,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     </head>
         <footer>
             <hr class="border border-info-subtle border-3 opacity-75">
-            <div class="container"><b>Copyright &copy; ROY Gaming Society</b></div>
+            <div class="container"><b>Copyright &copy; TARUMT University</b></div>
         </footer>
 </html>

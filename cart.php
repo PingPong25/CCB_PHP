@@ -87,7 +87,7 @@ if(isset($_GET["action"])){
     <?php include ('memberHeader.php'); require_once './secret/helperCart.php'; ?>
 
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Events</h1>
+        <h1 class="text-center mb-4">Products</h1>
             <div class="row row-cols-1 row-cols-md-4 g-4">
                 <?php
                     $sql = "SELECT * FROM EVENT ORDER BY EVENT_ID ASC";
@@ -102,11 +102,12 @@ if(isset($_GET["action"])){
                     <div class="card h-100">
                         <form action="cart.php?action=add&event_id=<?php echo $row["event_id"];?>" method="POST">
                             <?php
-                                $imagePath = "";
-                                foreach (glob("uploads/{$row['event_img']}.{jpg,jpeg,png,gif}", GLOB_BRACE) as $file) {
-                                    $imagePath = $file;
+                            $img = $row["event_img"];
+                                 $imagePath = "uploads/$img";
+                                 if (!file_exists($imagePath)) {
+                                    $imagePath = "img/default.png"; // Path to a default image
                                 }
-                            ?>
+                                ?>
                             <img src="<?php echo $imagePath; ?>" class="card-img-top" alt="Event Image" >
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $row["event_name"];?></h5>
@@ -161,7 +162,8 @@ if(isset($_GET["action"])){
                             <td><?php echo isset($value["eventName"]) ? $value["eventName"] : ""; ?></td>
                             <td><?php echo isset($value["quantity"]) ? $value["quantity"] : ""; ?></td>
                             <td><?php echo isset($value["price"]) ? $value["price"] : ""; ?></td>
-                            <td><?php echo array_key_exists("price", $value) ? number_format($value["quantity"] * $value["price"], 2) : ""; ?></td>
+                            <td><?php echo array_key_exists("price", $value) ? number_format($value["quantity"] * $value["price"], 2) : ""; ?></td>\
+                            <input type="hidden" name="hdEventID" value="<?php echo $row["event_id"];?>">
                             <td><a href="cart.php?action=delete&event_id=<?php echo isset ($value["eventID"]) ? $value["eventID"] : ""; ?>" class="btn btn-danger">Remove Item</a></td>
                         </tr>
                     <?php
@@ -179,31 +181,42 @@ if(isset($_GET["action"])){
                 </tbody>
             </table>
             <div class="text-end">
-                <input class="btn btn-info btn-md" type="submit" value="Proceed to Checkout" name="btnSubmit" onclick="proceedToCheckout('<?php echo $username; ?>', ['E0007','E0008','E0009','E0010','E0005'], '<?php echo $total; ?>');" />
+                <input class="btn btn-info btn-md" type="submit" value="Proceed to Checkout" name="btnSubmit" onclick="proceedToCheckout('<?php echo $username; ?>', '<?php echo $total; ?>');" />
             </div>
         </div>
     </div>
     <?php include ('footer.php'); ?>
 </body>
 <script>
-    function proceedToCheckout(username, eventIDs, total) {
+    // bring all data to payment
+    function proceedToCheckout(username, total) {
     console.log("Username:", username);
-    console.log("Event IDs:", eventIDs);
     console.log("Total:", total);
 
     var url = "payment.php?username=" + username + "&total=" + total;
 
-    // If there are eventIDs, add them to the URL as query parameters
+    // use this to retrieve specific ID from session data 
+    var eventIDs = [];
+    <?php 
+    if(isset($_SESSION["cart"]) && !empty($_SESSION["cart"])) {
+        foreach($_SESSION["cart"] as $item) {
+            if(isset($item["eventID"])) {
+                echo "eventIDs.push('".$item["eventID"]."');";
+            }
+        }
+    }
+    ?>
+    
+    // use add them to the URL as query parameters
     if (eventIDs.length > 0) {
         url += "&eventIDs=" + eventIDs.join(",");
     }
 
-    // Log the URL to the console
     console.log("URL:", url);
 
-    // Redirect to payment.php
     window.location.href = url;
 }
+
 
 </script>
 </html>

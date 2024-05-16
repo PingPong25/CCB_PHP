@@ -93,7 +93,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     die("Connection failed: ". $con->connect_error);
                 }
 
-                $sql = "SELECT * FROM Event WHERE EVENT_NAME LIKE '$name%' AND STATUS = 'A'";
+                $sql = "SELECT * FROM Event WHERE EVENT_NAME LIKE '$name%'";
+
 
                 //pass sql into connection to execute
                 $result = $con->query($sql);
@@ -102,24 +103,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 if($result->num_rows >0){
                    //record returned
                     while($row = $result->fetch_object()){
-                        $image = $row->event_img;
-                        foreach(glob("uploads/$image.{jpg,jpeg,png,gif}", GLOB_BRACE) as $file) {
-                            $basename = pathinfo($file, PATHINFO_BASENAME);              
-                        }
-                        $time = date('g:i A', strtotime($row->time));
+                        $img = $row->event_img;
+                         $imagePath = "uploads/$img";
+                            if (!file_exists($imagePath)) {
+                         $imagePath = "img/default.png"; // Path to a default image
+                         }
                         
                         printf("<div class='event-info'>
                             <h1>%s</h1>
                             <img class='img' src='%s' alt=''/>
-                            <p class='desc'>%s</p>
-                            <div class='line'>Venue: %s <br>
-                                Status: %s <br>
-                                Date: %s | Time: %s | Price: RM%.2f <br>
-                                </tr>", $row->event_name, $file,$row->event_desc 
-                                      ,$row->event_venue, getEventStatus()[$row->status]
-                                      ,$row->date, $time, $row->price
-                                      ,$row->event_id);
-                        }
+                            <p class='desc' style='text-align:center'>%s</p>
+                            <div class='line'>Price: RM%.2f <br><br>
+                                </tr></div>", $row->event_name, $imagePath, $row->event_desc, $row->price, $row->event_id);
+                            }
                     } else {
                         echo "<h1 style='color:red'>Existing Event <b>NOT</b> Found!</h1>";
                     }

@@ -84,9 +84,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 $id = strtoupper(trim($_POST["txtID"]));
                 $name = trim($_POST["txtName"]);
                 $desc = trim($_POST["txtDesc"]);
-                $venue = trim($_POST["txtVenue"]);
-                $date = trim($_POST["txtDate"]);
-                $time = trim($_POST["txtTime"]);
                 $price = trim($_POST["txtPrice"]);
                 $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
                 
@@ -100,10 +97,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 $error["event_id"] = checkEventID($id);
                 $error["event_name"] =checkEventName($name);
                 $error["event_desc"] = checkEventDesc($desc);
-                $error["event_venue"] = checkEventVenue($venue);
-                $error["status"] = checkEventStatus($status);
-                $error["date"] = checkEventDate($date);
-                $error["time"] = checkEventTime($time);
                 $error["price"] = checkEventPrice($price);
 
 
@@ -116,11 +109,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     //GOOD, sui no error
                     $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-                    $sql = "INSERT INTO EVENT (EVENT_ID, EVENT_NAME, EVENT_IMG, EVENT_DESC, EVENT_VENUE, STATUS, DATE, TIME, PRICE) VALUES (?, ?, ? ,?, ?, ? ,?, ?, ?)";
+                    $sql = "INSERT INTO EVENT (EVENT_ID, EVENT_NAME, EVENT_DESC, EVENT_IMG, PRICE) VALUES (?, ?, ? ,?, ?)";
 
                     $stmt = $con->prepare($sql);
 
-                    $stmt->bind_param("ssssssssd", $id, $name, $img, $desc, $venue, $status, $date, $time, $price);
+                    $stmt->bind_param("ssssd", $id, $name, $img, $desc, $price);
 
                     $stmt->execute();
 
@@ -145,17 +138,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             }
             ?>
         <div class="main">
-        <h1>Create A New Event</h1>
+        <h1>Create A New Product</h1>
         <div  class="table-gray">
         <form method="POST" action="" enctype="multipart/form-data">
             <table>
                 <tr>
-                    <td>Event ID:</td>
+                    <td>Product ID:</td>
                     <td><input type="text" name="txtID" value="<?php  echo isset($id)? $id : ""; ?>" /></td>
                 </tr>
                 
                 <tr>
-                    <td>Event Name:</td>
+                    <td>Product Name:</td>
                     <td><input type="text" name="txtName" value="<?php echo isset($name)? $name : ""; ?>" /></td>
                 </tr>
                 
@@ -167,38 +160,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 </tr>
                 
                 <tr>
-                    <td>Event Description:</td>
+                    <td>Product Description:</td>
                     <td><textarea name="txtDesc" rows="6" cols="100"><?php echo isset($desc)? $desc : ""; ?></textarea>
                 </tr>
                 
-                <tr>
-                    <td>Event Venue:</td>
-                    <td><input type="text" name="txtVenue" value="<?php echo isset($venue)? $venue : ""; ?>" /></td>
-                </tr>
-                
-                <tr>
-                    <td>Status:</td>
-                    <td><input type="radio" name="rbStatus" value="A" 
-                            <?php if(isset($status) && $status == "A"){ echo "checked";
-                               }else{ echo "";}?>/>Available
-                        <input type="radio" name="rbStatus" value="U" 
-                            <?php if(isset($status) && $status == "U"){ echo "checked";
-                                }else{ echo "";}?>/>Unavailable
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td>Event Date:</td>
-                    <td><input type="date" name="txtDate" value="<?php echo isset($date)? $date : ""; ?>" /></td>
-                </tr>
-                
-                <tr>
-                    <td>Event Time:</td>
-                    <td><input type="time" name="txtTime" value="<?php echo isset($time)? $time : ""; ?>" /></td>
-                </tr>
-                
-                <tr>
-                    <td>Event Price:</td>
+                    <td>Product Price:</td>
                     <td><input type="text" name="txtPrice" value="<?php echo isset($price)? $price : ""; ?>" /></td>
                 </tr>
             </table>

@@ -50,7 +50,7 @@ if(isset($_COOKIE['login-user'])) {
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">Payment ID</th>
-                        <th scope="col">Event ID</th>
+                        <th scope="col">Product ID</th>
                         <th scope="col">Payment Method</th>
                         <th scope="col">Amount</th>
                     </tr>

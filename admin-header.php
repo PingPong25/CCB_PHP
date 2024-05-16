@@ -15,8 +15,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
         <header>
             <h1> 
                 <nav class="nav">
-                    <img class = "logo" src="img/logo.jpg" alt=""/>
-                    <span>Gaming Society</span>
+                    <img class = "logo" src="img/logo.png" alt=""/>
+                    <span>TARUMT University</span>
                 </nav>
             </h1>
             <h2>
@@ -24,7 +24,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     <div class="p-2 flex-grow-1">
                         <ul class="nav nav-tabs">
                             <li class="nav-item"><a class="nav-link active" aria-current="page" href="admin-event.php">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="maintainEvent.php">Maintain Event</a></li>
+                            <li class="nav-item"><a class="nav-link" href="maintainEvent.php">Maintain Product</a></li>
                             <li class="nav-item"><a class="nav-link" href="maintainUser.php">Maintain Member</a></li>
                             <li class="nav-item"><a class="nav-link" href="feedbackAdmin.php">View Feedback</a></li>
                         </ul>

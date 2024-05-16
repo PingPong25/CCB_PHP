@@ -3,7 +3,7 @@
 define("DB_HOST", "localhost");
 define("DB_USER", "root");
 define("DB_PASS", "");
-define("DB_NAME", "assignment");
+define("DB_NAME", "assignments");
 
 /*
  
@@ -13,7 +13,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit th
 
 session_start(); // Start the session to access session variables
 // Get the logged-in user's username from the session
-$username = $_SESSION['username'];
+$username = isset($_SESSION['username']) ? $_SESSION['username'] : null;
 
 // Create database connection
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);

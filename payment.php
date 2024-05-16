@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+require_once './secret/helperCart.php';
 
 if(isset($_POST['logout'])){
     if (isset($_COOKIE["login-user"])) {
@@ -19,7 +22,7 @@ if(isset($_POST['logout'])){
 }
 
 $username = $_GET['username'];
-$eventIDs = $_GET['event_id'];
+$eventIDs = $_GET['eventIDs'];
 $total = $_GET['total'];
 ?>
 
@@ -35,6 +38,20 @@ $total = $_GET['total'];
         <?php include_once './secret/helperCart.php';?>
         <?php include ('memberHeader.php'); ?>
         <?php
+        // Fetch the next payment ID
+        $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        $sql = "SELECT MAX(SUBSTRING(PAYMENT_ID, 2)) AS max_id FROM PAYMENT";
+        $result = $con->query($sql);
+        $row = $result->fetch_assoc();
+        $nextPaymentIdNumeric = (int)$row['max_id'] + 1; // Convert to integer
+        $nextPaymentId = "P" . str_pad($nextPaymentIdNumeric, 4, "0", STR_PAD_LEFT); // Format as "PXXXX"
+
+        // Check if $nextPaymentIdNumeric is NaN (not a number)
+        if (is_nan($nextPaymentIdNumeric)) {
+            $nextPaymentId = "P0001"; // If NaN, set to the default value
+        }
+        ?>
+         <?php
         if (!empty($_POST)) {
             //user click/ submit the page
             //1.1 receive user input from form
@@ -50,9 +67,6 @@ $total = $_GET['total'];
             //1.2 check/validate/ verify member detail
 
             $error["nameOnCard"] = checkUserName($cardName);
-            $error["cardNumber"] = checkCardNumber($cardNumber);
-            $error["expiryDate"] = checkExpiryDate($expDate);
-            $error["ccv"] = checkCVV($CVV);
             $error["totalaAmount"] = checkTotalAmount($amount);
             $error["paymentMethod"] = checkPaymentMethod($paymentMethod);
 
@@ -70,7 +84,8 @@ $total = $_GET['total'];
 
                 $stmt = $con->prepare($sql);
 
-                $stmt->bind_param("ssssssids", $username, $eventID, $cardName, $cardNumber, $expDate, $CVV, $amount, $paymentMethod);
+                // Adjust the bind_param types to match the number of placeholders in your SQL statement
+                $stmt->bind_param("ssssssids", $nextPaymentId, $username, $eventID, $cardName, $cardNumber, $expDate, $CVV, $amount, $paymentMethod);
 
                 $stmt->execute();
 
@@ -94,17 +109,23 @@ $total = $_GET['total'];
             }
         }
         ?>
+
         <div class="container mt-5">
             <div class="row">
                 <form action="" method="POST">
                     <div class="col-md-6">
 
                         <div class="mb-3">
+                            <label for="paymentID" class="form-label">Payment ID:</label>
+                            <input type="text" class="form-control" name="paymentID" placeholder="Payment ID" value="<?php echo $nextPaymentId; ?>" readonly>
+                        </div>
+
+                        <div class="mb-3">
                             <label for="username" class="form-label">Username:</label>
                             <input type="text" class="form-control" name="username" placeholder="username" value="<?php echo isset($username) ? $username : ""; ?>" readonly>
                         </div>
                         <div class="mb-3">
-                            <label for="Event" class="form-label">Event:</label>
+                            <label for="Event" class="form-label">Product:</label>
                             <input type="text" class="form-control" name="eventID" placeholder="E0001" value="<?php echo isset($eventIDs) ? $eventIDs : ""; ?>" readonly>
                         </div>
                         <div class="mb-3">
@@ -147,7 +168,7 @@ $total = $_GET['total'];
                         </div>
                     </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <a class="btn btn-info btn-md" href="#" role="button"><input type="submit" name="btnSubmit" value="CheckOut"></a>
+                        <a class="btn btn-info btn-md" href="memberEvent.php" role="button"><input type="submit" name="btnSubmit" value="CheckOut"></a>
                     </div>
                 </form>
             </div>

@@ -70,7 +70,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                                     <td>%s</td>
                                 </tr>
                                 <tr>
-                                    <td>Event: </td>
+                                    <td>Product: </td>
                                     <td>%s</td>
                                 </tr>
                                 <tr>

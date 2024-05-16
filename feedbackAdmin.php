@@ -50,7 +50,7 @@ if(isset($_COOKIE['login-user'])) {
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">Feedback ID</th>
-                        <th scope="col">Event ID</th>
+                        <th scope="col">Product ID</th>
                         <th scope="col">Feedback Description</th>
                         <th scope="col">Action</th>
                     </tr>

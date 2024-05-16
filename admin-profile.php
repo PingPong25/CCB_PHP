@@ -61,7 +61,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                             <div class="mt-3">
                                 <br>
                                 <a href="admin-event.php">Home</a>
-                                <a href="maintainEvent.php">Maintain Event</a>
+                                <a href="maintainEvent.php">Maintain Product</a>
                                 <a href="maintainUser.php">Maintain Member</a>
                                 <a href="feedbackAdmin.php">View Feedback</a>
                             </div>

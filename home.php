@@ -18,13 +18,13 @@
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="img/main.jpg" class="d-block w-100" alt="...">
+                <img src="img/book.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://toucharcade.com/wp-content/uploads/2018/10/625626B8-158A-4B9E-8F72-8732458B9032.jpeg" class="d-block w-100" alt="...">
+                <img src="img/bottle.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="img/main2.png" class="d-block w-100" alt="...">
+                <img src="img/cap.jpg" class="d-block w-100" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -46,7 +46,12 @@
                         <h2 class="section-heading mb-4">
                             <span class="section-heading-upper">Expertise Gaming Worth For Joy</span>
                         </h2>
-                        <p class="mb-3">Every event be conduct is quality and cooperate with locally gaming clubs. Once you try it, full of fun and joy will be around whole day!</p>
+                        <p>
+               Welcome to <b style="font-family: Lucida Console, Courier New, monospace">TARUMT University!</b>
+               <br><br>As graduation season approaches, we're your one-stop destination for all things celebratory and commemorative. 
+               <br><br>From elegant regalia to personalized keepsakes, we have everything you need to make your graduation experience unforgettable. 
+               <br><br>With a dedicated team and a commitment to excellence, we're here to ensure your special day is as seamless and memorable as possible. 
+            </p> 
                         <!--<div class="intro-button mx-auto"><a class="btn btn-primary btn-xl" href="#!">Visit Us Today!</a></div>-->
                     </div>
                 </div>
@@ -58,9 +63,10 @@
                     <div class="col-xl-9 mx-auto">
                         <div class="cta-inner bg-faded text-center rounded">
                             <h2 class="section-heading mb-4">
-                                <span class="section-heading-upper">Our Promise To You</span>
+                                <span class="section-heading-upper">Congratulations!!!</span>
                             </h2>
-                            <p class="mb-0">Our club is aid to provide the best services to all of you.</p>
+                            <p class="mb-0">On reaching this milestone, and let us help you celebrate in style at TARUMT University's Graduation Emporium.</p>
+</p>
                         </div>
                     </div>
                 </div>
