@@ -90,7 +90,7 @@ if(isset($_GET["action"])){
         <h1 class="text-center mb-4">Products</h1>
             <div class="row row-cols-1 row-cols-md-4 g-4">
                 <?php
-                    $sql = "SELECT * FROM EVENT ORDER BY EVENT_ID ASC";
+                    $sql = "SELECT * FROM event ORDER BY EVENT_ID ASC";
 
                     $result = mysqli_query($con,$sql);
 

@@ -14,7 +14,7 @@ if(isset($_POST["submit-login"])){
         die("Connection failed: ". $con->connect_error);
     }
                 
-    $sql = "SELECT PASSWORD FROM USER WHERE USERNAME = '$username'";
+    $sql = "SELECT PASSWORD FROM user WHERE USERNAME = '$username'";
                 
     $result = $con->query($sql);
         

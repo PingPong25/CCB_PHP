@@ -70,7 +70,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 
             $username = $con->real_escape_string($username);
                 
-            $sql = "SELECT * FROM USER WHERE USERNAME = '$username'";
+            $sql = "SELECT * FROM user WHERE USERNAME = '$username'";
                 
             $result = $con->query($sql);
                 
@@ -114,7 +114,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 if(empty($error)){
                     $con = new mysqli(DB_HOST,DB_USER, DB_PASS, DB_NAME);
                     
-                    $sql = "UPDATE USER SET FULLNAME = ?, GENDER = ?, BIRTHDATE = ?, PHONE_NUMBER = ?, EMAIL_ADDRESS = ? WHERE USERNAME = ?";
+                    $sql = "UPDATE user SET FULLNAME = ?, GENDER = ?, BIRTHDATE = ?, PHONE_NUMBER = ?, EMAIL_ADDRESS = ? WHERE USERNAME = ?";
 
                     $stmt = $con->prepare($sql);
 

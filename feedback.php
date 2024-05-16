@@ -115,7 +115,7 @@ if (empty($_GET)) {
 
             if (empty($error)) {
                 $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-                $sql = "INSERT INTO user (feedback_id, feedback_desc, username, event_id) VALUES(?,?,?,?)";
+                $sql = "INSERT INTO feedback (feedback_id, feedback_desc, username, event_id) VALUES(?,?,?,?)";
                 $stmt = $con->prepare($sql);
                 $stmt->bind_param("isss", $clnFeedback, $event, $user);
                 $stmt->execute();

@@ -128,7 +128,7 @@ if (isset($_COOKIE["login-user"])) {
                                 $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
                                 // Prepare SQL statement
-                                $sql = "UPDATE USER SET FULLNAME = ?, GENDER = ?, BIRTHDATE = ?, PHONE_NUMBER = ?, EMAIL_ADDRESS = ? WHERE USERNAME = ?";
+                                $sql = "UPDATE user SET FULLNAME = ?, GENDER = ?, BIRTHDATE = ?, PHONE_NUMBER = ?, EMAIL_ADDRESS = ? WHERE USERNAME = ?";
                                 $stmt = $con->prepare($sql);
                                 $stmt->bind_param("ssssss", $fullName, $gender, $birthDate, $phoneNumber, $email, $userName);
                                 $stmt->execute();

@@ -131,7 +131,7 @@ if (isset($_COOKIE["login-user"])) {
         die("Connection failed: ". $con->connect_error);
     }
 
-    $sql = "SELECT * FROM USER WHERE USERNAME = '$username'";
+    $sql = "SELECT * FROM user WHERE USERNAME = '$username'";
 
     //pass sql into connection to execute
     $result = $con->query($sql);

@@ -93,7 +93,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     //GOOD, sui no error
                     $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-                        $sql = "INSERT INTO USER (USERNAME, FULLNAME, GENDER, BIRTHDATE, PHONE_NUMBER, EMAIL_ADDRESS, PASSWORD) VALUES ( ? ,?, ?, ? ,?, ?, ?)";
+                        $sql = "INSERT INTO user (USERNAME, FULLNAME, GENDER, BIRTHDATE, PHONE_NUMBER, EMAIL_ADDRESS, PASSWORD) VALUES ( ? ,?, ?, ? ,?, ?, ?)";
 
                     $stmt = $con->prepare($sql);
 

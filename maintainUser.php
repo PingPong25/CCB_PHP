@@ -122,7 +122,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         $escape[] = $con->real_escape_string($value);
                     }
                     
-                    $sql = "DELETE FROM USER WHERE USERNAME IN ('" . implode("', '", $escape) . "')";
+                    $sql = "DELETE FROM user WHERE USERNAME IN ('" . implode("', '", $escape) . "')";
                     
                     if($con->query($sql)){
                         printf("<div class='info'> <b>%d</b> record(s) has been deleted.</div>", $con->affected_rows);
@@ -162,7 +162,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                         die("Connection failed: ". $con->connect_error);
                     }
 
-                    $sql = "SELECT * FROM USER WHERE USERNAME LIKE '$name%' AND GENDER LIKE '$gender' ORDER BY $sort $order ";
+                    $sql = "SELECT * FROM user WHERE USERNAME LIKE '$name%' AND GENDER LIKE '$gender' ORDER BY $sort $order ";
 
                     //pass sql into connection to execute
                     $result = $con->query($sql);

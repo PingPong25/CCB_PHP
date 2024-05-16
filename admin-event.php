@@ -80,7 +80,7 @@ if (empty($_GET)) {
             die("Connection failed: " . $con->connect_error);
         }
 
-        $sql = "SELECT * FROM Event WHERE EVENT_NAME LIKE '$name%' ";
+        $sql = "SELECT * FROM event WHERE EVENT_NAME LIKE '$name%' ";
 
         // Execute the query
         $result = $con->query($sql);

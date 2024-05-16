@@ -66,7 +66,7 @@ if (isset($_POST["btnYes"])) {
             
             $id = $con->real_escape_string($id);
             
-            $sql = "SELECT * FROM EVENT WHERE EVENT_ID = '$id'";
+            $sql = "SELECT * FROM event WHERE EVENT_ID = '$id'";
             
             $result = $con->query($sql);
             
@@ -118,13 +118,13 @@ if (isset($_POST["btnYes"])) {
             
             try {
                 // Delete related feedback records
-                $sqlFeedback = "DELETE FROM FEEDBACK WHERE EVENT_ID = ?";
+                $sqlFeedback = "DELETE FROM feeback WHERE EVENT_ID = ?";
                 $stmtFeedback = $con->prepare($sqlFeedback);
                 $stmtFeedback->bind_param("s", $id);
                 $stmtFeedback->execute();
                 
                 // Delete the event
-                $sqlEvent = "DELETE FROM EVENT WHERE EVENT_ID = ?";
+                $sqlEvent = "DELETE FROM event WHERE EVENT_ID = ?";
                 $stmtEvent = $con->prepare($sqlEvent);
                 $stmtEvent->bind_param("s", $id);
                 $stmtEvent->execute();

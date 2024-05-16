@@ -74,7 +74,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 
                 $username = $con->real_escape_string($username);
                 
-                $sql = "SELECT * FROM USER WHERE USERNAME = '$username'";
+                $sql = "SELECT * FROM user WHERE USERNAME = '$username'";
                 
                 $result = $con->query($sql);
                 
@@ -116,7 +116,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                 $fullname = trim($_POST["hdFName"]);
                 
                 $con = new mysqli(DB_HOST,DB_USER, DB_PASS, DB_NAME);
-                $sql = "DELETE FROM USER WHERE USERNAME = ?";
+                $sql = "DELETE FROM user WHERE USERNAME = ?";
                 
                 $stmt = $con->prepare($sql);
                 

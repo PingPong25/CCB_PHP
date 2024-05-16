@@ -102,7 +102,7 @@ $header = array(
                     $escape[] = $con->real_escape_string($value);
                 }
                 
-                $sql = "DELETE FROM EVENT WHERE EVENT_ID IN ('" . implode("', '", $escape) . "')";
+                $sql = "DELETE FROM event WHERE EVENT_ID IN ('" . implode("', '", $escape) . "')";
                 
                 if ($con->query($sql)) {
                     printf("<div class='info'> <b>%d</b> record(s) has been deleted.</div>", $con->affected_rows);
@@ -140,7 +140,7 @@ $header = array(
                     die("Connection failed: " . $con->connect_error);
                 }
 
-                $sql = "SELECT event_id, event_name, event_img, event_desc, price FROM Event WHERE event_name LIKE '$name%' ORDER BY $sort $order";
+                $sql = "SELECT event_id, event_name, event_img, event_desc, price FROM event WHERE event_name LIKE '$name%' ORDER BY $sort $order";
 
                 $result = $con->query($sql);
 

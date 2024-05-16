@@ -82,7 +82,7 @@ if (isset($_FILES["fupImage"])) {
 
         $id = $con->real_escape_string($id);
 
-        $sql = "SELECT * FROM EVENT WHERE EVENT_ID = '$id'";
+        $sql = "SELECT * FROM event WHERE EVENT_ID = '$id'";
 
         $result = $con->query($sql);
 
@@ -116,7 +116,7 @@ if (isset($_FILES["fupImage"])) {
         if (empty($error)) {
             $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-            $sql = "UPDATE EVENT SET EVENT_NAME = ?, EVENT_IMG = ?, EVENT_DESC = ?, PRICE = ? WHERE EVENT_ID = ?";
+            $sql = "UPDATE event SET EVENT_NAME = ?, EVENT_IMG = ?, EVENT_DESC = ?, PRICE = ? WHERE EVENT_ID = ?";
 
             $stmt = $con->prepare($sql);
 

@@ -40,7 +40,7 @@ $total = $_GET['total'];
         <?php
         // Fetch the next payment ID
         $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-        $sql = "SELECT MAX(SUBSTRING(PAYMENT_ID, 2)) AS max_id FROM PAYMENT";
+        $sql = "SELECT MAX(SUBSTRING(PAYMENT_ID, 2)) AS max_id FROM payment";
         $result = $con->query($sql);
         $row = $result->fetch_assoc();
         $nextPaymentIdNumeric = (int)$row['max_id'] + 1; // Convert to integer
@@ -80,7 +80,7 @@ $total = $_GET['total'];
                 //GOOD, sui no error
                 $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-                $sql = "INSERT INTO PAYMENT (PAYMENT_ID, USERNAME, EVENT_ID, CARDNAME, CARDNUMBER, EXPDATE, CVV, AMOUNT, PAYMENT_METHOD) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $sql = "INSERT INTO payment (PAYMENT_ID, USERNAME, EVENT_ID, CARDNAME, CARDNUMBER, EXPDATE, CVV, AMOUNT, PAYMENT_METHOD) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
                 $stmt = $con->prepare($sql);
 
@@ -168,7 +168,7 @@ $total = $_GET['total'];
                         </div>
                     </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <a class="btn btn-info btn-md" href="memberEvent.php" role="button"><input type="submit" name="btnSubmit" value="CheckOut"></a>
+                        <a class="btn btn-info btn-md" href="paymentHistory.php" role="button"><input type="submit" name="btnSubmit" value="CheckOut"></a>
                     </div>
                 </form>
             </div>

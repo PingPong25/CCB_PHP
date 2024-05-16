@@ -109,7 +109,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     //GOOD, sui no error
                     $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-                    $sql = "INSERT INTO EVENT (EVENT_ID, EVENT_NAME, EVENT_DESC, EVENT_IMG, PRICE) VALUES (?, ?, ? ,?, ?)";
+                    $sql = "INSERT INTO event (EVENT_ID, EVENT_NAME, EVENT_DESC, EVENT_IMG, PRICE) VALUES (?, ?, ? ,?, ?)";
 
                     $stmt = $con->prepare($sql);
 

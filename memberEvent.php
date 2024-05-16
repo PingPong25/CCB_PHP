@@ -93,7 +93,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
                     die("Connection failed: ". $con->connect_error);
                 }
 
-                $sql = "SELECT * FROM Event WHERE EVENT_NAME LIKE '$name%'";
+                $sql = "SELECT * FROM event WHERE EVENT_NAME LIKE '$name%'";
 
 
                 //pass sql into connection to execute
