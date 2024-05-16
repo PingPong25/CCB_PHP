@@ -12,7 +12,23 @@ body{
     width: 150px;
 }
 
-#button{
+#button1{
+    background-color: #A6EEF0;
+    border: 0;
+    border-radius: 50px;
+    width: 75px;
+    height: 40px;
+}
+
+#button2{
+    background-color: #A6EEF0;
+    border: 0;
+    border-radius: 50px;
+    width: 75px;
+    height: 40px;
+}
+
+#button3{
     background-color: #A6EEF0;
     border: 0;
     border-radius: 50px;

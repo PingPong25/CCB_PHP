@@ -132,9 +132,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
             </table>
             
             <div style="text-align: center;">
-                <input type="submit" value="Sign In" name="submit-login" id="button"/>
-                <input type="reset" value="Cancel" name="reset" id="button"/>
-                <input type="button" value="Back" name="home" id="button" onclick="document.location='home.php'"/>
+                <input type="submit" value="Sign In" name="submit-login" id="button1"/>
+                <input type="reset" value="Cancel" name="reset" id="button2"/>
+                <input type="button" value="Back" name="home" id="button3" onclick="document.location='home.php'"/>
             </div>
             <b>Haven't register? Click </b><a href='register.php'>Register Now!</a>
             <br>
