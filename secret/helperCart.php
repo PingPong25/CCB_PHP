@@ -1,8 +1,8 @@
 <?php
-define("DB_HOST", "localhost");
-define("DB_USER", "root");
-define("DB_PASS", "");
-define("DB_NAME", "assignments");
+define('DB_HOST', "cc-assignment.cfwym86w4vtm.us-east-1.rds.amazonaws.com");
+define('DB_USER', "admin");
+define('DB_PASS', "ccnbuser");
+define('DB_NAME', "cc");
 
 $con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
